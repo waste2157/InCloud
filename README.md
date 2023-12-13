@@ -1,7 +1,7 @@
 # InCloud GitHub云上扫描器
 ![-w784](yun.png)
 ## 简介
-本项目gork于https://github.com/inbug-team/InCloud这位大佬，但是由于项目是2021年的，作者也没有进行更新，如果使用需要自己进行修改部分代码。
+本项目fork于：https://github.com/inbug-team/InCloud 这位大佬，但是由于项目是2021年的，作者也没有进行更新，如果使用需要自己进行修改部分代码。
 
 这里我已经将代码修改为最新版并进行测试，可以成功运行，截图如下。（为了安全，这里代码我没有更新。）
 
