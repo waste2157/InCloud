@@ -13,7 +13,7 @@ jobs:
       - name: Setup golang
         uses: actions/setup-go@v2
         with:
-          go-version: 1.14
+          go-version: 1.21.5
 
       - name: Setup Dependencies
         run: sudo apt-get install libpcap-dev 
@@ -32,17 +32,17 @@ jobs:
         env:
           GO111MODULE: on
         run: |
-          go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
-          go get -v github.com/projectdiscovery/dnsx/cmd/dnsx
-          go get -v github.com/projectdiscovery/naabu/v2/cmd/naabu
-          go get -v github.com/projectdiscovery/httpx/cmd/httpx
-          go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+          go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder
+          go install github.com/projectdiscovery/dnsx/cmd/dnsx
+          go install github.com/projectdiscovery/naabu/v2/cmd/naabu
+          go install github.com/projectdiscovery/httpx/cmd/httpx
+          go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei
         shell: bash
 
 
       - name: Running naabu to check top all ports
         run: |
-          naabu -iL input/target.txt  -rate 10000 -p - | tee output/active_ports.txt
+          naabu -list input/target.txt  -rate 10000 -p - | tee output/active_ports.txt
         shell: bash
 
 
@@ -63,8 +63,8 @@ jobs:
           git add output/active_urls.txt
       - name: Commit results to Github
         run: |
-          git config --local user.email "admin@inbug.org"
-          git config --global user.name "inbug-team"
+          git config --local user.email "3318170658@qq.com"
+          git config --global user.name "waste2157"
           git commit -m "InCloud Report" -a --allow-empty
       - name: Push changes
         uses: ad-m/github-push-action@master
